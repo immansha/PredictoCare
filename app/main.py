@@ -6,7 +6,7 @@ import numpy as np
 
 
 def get_clean_data():
-  data = pd.read_csv("C:\\Users\\hp\\Downloads\\breast cancer proj\\data.csv")
+  data = pd.read_csv("data.csv")
   
   data = data.drop(['Unnamed: 32', 'id'], axis=1)
   
@@ -139,8 +139,8 @@ def get_radar_chart(input_data):
 
 
 def add_predictions(input_data):
-  model = pickle.load(open("C:\\Users\\hp\\Downloads\\breast cancer proj\\model.pkl", "rb"))
-  scaler = pickle.load(open("C:\\Users\\hp\\Downloads\\breast cancer proj\\scaler.pkl", "rb"))
+  model = pickle.load(open("model.pkl", "rb"))
+  scaler = pickle.load(open("scaler.pkl", "rb"))
   
   input_array = np.array(list(input_data.values())).reshape(1, -1)
   
@@ -172,7 +172,7 @@ def main():
     initial_sidebar_state="expanded"
   )
   
-  with open("C:\\Users\\hp\\Downloads\\breast cancer proj\\app\\assets.css") as f:
+  with open("app/assets.css") as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
   
   input_data = add_sidebar()
